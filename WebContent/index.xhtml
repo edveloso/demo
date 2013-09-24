@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h:outputText value="Formulário de Login" />
+	<br />
+
+	<h:form>
+	<h:messages />
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Login" for="login" />
+			
+			<h:inputText value="#{userMB.user.name}" id="login" >
+			   <f:validator validatorId="usrVal"/>
+			</h:inputText>
+			
+			<h:outputLabel value="Senha" for="senha" />
+			<h:inputSecret value="#{userMB.user.name}" id="senha" />
+			
+			
+			<h:outputLabel value="CPF" for="cpf" />
+
+			<h:inputText value="#{userMB.user.cpf}" id="cpf" >
+			   <f:converter converterId="cpfConv" ></f:converter>
+			</h:inputText>
+			
+			<h:commandButton action="#{userMB.gravar()}" value="Gravar" />
+		</h:panelGrid>
+	</h:form>
+
+    <h:outputText value="Usuario salvo #{userMB.user.name}" />
+    <h:outputText value="Usuario CPF #{userMB.user.cpf}" />
+
+
+
+</body>
+</html>
